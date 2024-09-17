@@ -65,7 +65,8 @@ For any other API Client, here are the resources supported by this application:
 
 All body requirements ( POST and PATCH ) consist of a JSON formatted string. Primary Keys (pk) are automatically generated and they are used on functions that require specific item localization ( GET, PATCH and DELETE ).
 
-A running version of this app is ready for testing at: https://r6gv75i2rc.execute-api.us-east-1.amazonaws.com/prod/
+A running version of this app is ready for testing at: 
+https://r6gv75i2rc.execute-api.us-east-1.amazonaws.com/prod/
 
 Uninstallation
 =============================
