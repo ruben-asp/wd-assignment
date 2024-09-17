@@ -1,0 +1,47 @@
+{
+   "resource":"/",
+   "path":"/",
+   "httpMethod":"GET",
+   "headers":null,
+   "multiValueHeaders":null,
+   "queryStringParameters":null,
+   "multiValueQueryStringParameters":null,
+   "pathParameters":{
+      "id":"{id}"
+   },
+   "stageVariables":null,
+   "requestContext":{
+      "resourceId":"bymdrk",
+      "resourcePath":"/{id}",
+      "httpMethod":"DELETE",
+      "extendedRequestId":"eIj6iH3AoAMFXXA=",
+      "requestTime":"15/Sep/2024:06:35:47 +0000",
+      "path":"/{id}",
+      "accountId":"991192461558",
+      "protocol":"HTTP/1.1",
+      "stage":"test-invoke-stage",
+      "domainPrefix":"testPrefix",
+      "requestTimeEpoch":1726382147159,
+      "requestId":"d08e135e-3b5c-4485-8513-ccf7a1228a4f",
+      "identity":{
+         "cognitoIdentityPoolId":null,
+         "cognitoIdentityId":null,
+         "apiKey":"test-invoke-api-key",
+         "principalOrgId":null,
+         "cognitoAuthenticationType":null,
+         "userArn":"arn:aws:iam::991192461558:root",
+         "apiKeyId":"test-invoke-api-key-id",
+         "userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:130.0) Gecko/20100101 Firefox/130.0",
+         "accountId":"991192461558",
+         "caller":"991192461558",
+         "sourceIp":"test-invoke-source-ip",
+         "accessKey":"ASIA6NR5MWD3BA2NEA5S",
+         "cognitoAuthenticationProvider":null,
+         "user":"991192461558"
+      },
+      "domainName":"testPrefix.testDomainName",
+      "apiId":"r6gv75i2rc"
+   },
+   "body":null,
+   "isBase64Encoded":false
+}

@@ -1,0 +1,47 @@
+{
+    "resource": "/{id}",
+    "path": "/f1b4fa27-65ec-4bcf-beb3-dbebfa6f54e3",
+    "httpMethod": "DELETE",
+    "headers": null,
+    "multiValueHeaders": null,
+    "queryStringParameters": null,
+    "multiValueQueryStringParameters": null,
+    "pathParameters": null,
+    "stageVariables": null,
+    "pathParameters":{
+        "id":"f1b4fa27-65ec-4bcf-beb3-dbebfa6f54e3"
+    },    
+    "requestContext": {
+        "resourceId": "fpndlgj5li",
+        "resourcePath": "/f1b4fa27-65ec-4bcf-beb3-dbebfa6f54e3",
+        "httpMethod": "DELETE",
+        "extendedRequestId": "eOTHkGg8IAMFysA=",
+        "requestTime": "17/Sep/2024:00:22:33 +0000",
+        "path": "/",
+        "accountId": "991192461558",
+        "protocol": "HTTP/1.1",
+        "stage": "test-invoke-stage",
+        "domainPrefix": "testPrefix",
+        "requestTimeEpoch": 1726532553719,
+        "requestId": "1f2c1130-d8e1-42e7-8b3b-dc5acfb760d8",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "cognitoIdentityId": null,
+            "apiKey": "test-invoke-api-key",
+            "principalOrgId": null,
+            "cognitoAuthenticationType": null,
+            "userArn": "arn:aws:iam::991192461558:root",
+            "apiKeyId": "test-invoke-api-key-id",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:130.0) Gecko/20100101 Firefox/130.0",
+            "accountId": "991192461558",
+            "caller": "991192461558",
+            "sourceIp": "test-invoke-source-ip",
+            "accessKey": "ASIA6NR5MWD3FU6NUH6H",
+            "cognitoAuthenticationProvider": null,
+            "user": "991192461558"
+        },
+        "domainName": "testPrefix.testDomainName",
+        "apiId": "r6gv75i2rc"
+    },
+    "isBase64Encoded": false
+}
