@@ -20,10 +20,7 @@ class postEndpoint(Endpoints):
         """
         id = event.get("pathParameters", {}).get("id", "")
         if id in ["", "{id}"]:
-            return {
-            'statusCode': 400,
-            'body': json.dumps({ 'message': 'Missing body' })
-            }
+            return self.http_response( body = { 'message': 'Missing id parameter' }, statusCode=400 )
 
         
         response = self.dbDynamoClient.get_item( 
@@ -33,9 +30,10 @@ class postEndpoint(Endpoints):
         
         if "Item" in response:
             item = response["Item"]
-            return { 'statusCode': 200, 'body': json.dumps({"pk":item['pk']['S'], "body": json.loads(item['body']['S'])}) }
+            return self.http_response( body = {"pk":item['pk']['S'], "body": json.loads(item['body']['S'])} )
+            #return { 'statusCode': 200, 'body': json.dumps({"pk":item['pk']['S'], "body": json.loads(item['body']['S'])}) }
 
-        return { 'statusCode': 400, 'body': '{}' }
+        return self.http_response( statusCode=400 )
 
     def edit_item(self, event):
         """
@@ -47,10 +45,7 @@ class postEndpoint(Endpoints):
         """
         id = event.get("pathParameters", {}).get("id", "")
         if id in ["", "{id}"] or not event.get('body'):
-            return {
-            'statusCode': 400,
-            'body': json.dumps({ 'message': 'Missing parameters' })
-            }
+            return self.http_response( body = { 'message': 'Missing parameters' }, statusCode=400 )
 
         response = self.dbDynamoClient.update_item( 
             TableName = self.tableName,
@@ -67,9 +62,10 @@ class postEndpoint(Endpoints):
         
         if "Attributes" in response:
             item = response["Attributes"]
-            return { 'statusCode': 200, 'body': json.dumps({"pk":item['pk']['S'], "body": json.loads(item['body']['S'])}) }
+            return self.http_response( body = {"pk":item['pk']['S'], "body": json.loads(item['body']['S'])} )
+            #return { 'statusCode': 200, 'body': json.dumps({"pk":item['pk']['S'], "body": json.loads(item['body']['S'])}) }
 
-        return { 'statusCode': 400, 'body': '{}' }
+        return self.http_response(statusCode= 400)
 
 
     def delete_item(self, event):
@@ -82,11 +78,7 @@ class postEndpoint(Endpoints):
         """
         id = event.get("pathParameters", {}).get("id", "")
         if id in ["", "{id}"]:
-            return {
-            'statusCode': 400,
-            'body': json.dumps({ 'message': 'Missing body' })
-            }
-
+            return self.http_response( body = { 'message': 'Missing id parameter' }, statusCode=400 )       
         
         response = self.dbDynamoClient.delete_item( 
             TableName = self.tableName,
@@ -96,6 +88,7 @@ class postEndpoint(Endpoints):
         
         if "Attributes" in response:
             item = response["Attributes"]
-            return { 'statusCode': 200, 'body': json.dumps({"pk":item['pk']['S'], "body": json.loads(item['body']['S'])}) }
+            return self.http_response( body = {"pk":item['pk']['S'], "body": json.loads(item['body']['S'])})       
+            #return { 'statusCode': 200, 'body': json.dumps({"pk":item['pk']['S'], "body": json.loads(item['body']['S'])}) }
 
-        return { 'statusCode': 400, 'body': '{}' }
+        return self.http_response(statusCode= 400)

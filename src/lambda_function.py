@@ -1,5 +1,5 @@
 import json
-from init import rootObject, postObject, not_found
+from init import rootObject, postObject, resource_not_found
 
 def lambda_handler(event, context):
     # TODO implement
@@ -8,5 +8,5 @@ def lambda_handler(event, context):
         "/{id}" : postObject
     }
 
-    return http_resources.get(event['resource'], not_found) (event)
+    return http_resources.get(event['resource'], resource_not_found) (event)
 

@@ -40,7 +40,7 @@ export class WDAssignmentStack extends Stack {
         }),
         handler: `lambda_function.lambda_handler`,
         environment: {
-          TABLE_NAME: dbTable.tableName,
+          TABLE_NAME: "WD-Assignment-DbTable", //dbTable.tableName,
         },
         functionName: `${project_name}-Lambda`,
       }

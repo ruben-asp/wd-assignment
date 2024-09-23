@@ -1,7 +1,7 @@
 {
    "resource":"/",
    "path":"/",
-   "httpMethod":"GET",
+   "httpMethod":"OPTIONS",
    "headers":null,
    "multiValueHeaders":null,
    "queryStringParameters":null,
@@ -13,7 +13,7 @@
    "requestContext":{
       "resourceId":"bymdrk",
       "resourcePath":"/{id}",
-      "httpMethod":"GET",
+      "httpMethod":"OPTIONS",
       "extendedRequestId":"eIj6iH3AoAMFXXA=",
       "requestTime":"15/Sep/2024:06:35:47 +0000",
       "path":"/{id}",

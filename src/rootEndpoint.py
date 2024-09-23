@@ -19,10 +19,14 @@ class rootEndpoint(Endpoints):
         """
         response = self.dbDynamoClient.scan( TableName = self.tableName )
         
-        return {
-            'statusCode': 200,
-            'body': json.dumps([ {"pk":item['pk']['S'], "body": json.loads(item['body']['S'])} for item in response.get('Items', []) ])
-        }    
+        return self.http_response (
+            body = [ {"pk":item['pk']['S'], "body": json.loads(item['body']['S'])} for item in response.get('Items', []) ]
+        )
+        
+        #return {
+        #    'statusCode': 200,
+        #    'body': json.dumps([ {"pk":item['pk']['S'], "body": json.loads(item['body']['S'])} for item in response.get('Items', []) ])
+        #}    
 
     def insert_data(self, event):
         """
@@ -33,7 +37,8 @@ class rootEndpoint(Endpoints):
             Response Dictionary
         """
         if not event.get('body'):
-            return { 'statusCode': 400, 'body': json.dumps({ 'message': 'Missing body' }) }
+            return self.http_response( body = { 'message': 'Missing body' }, statusCode=400 )
+            #return { 'statusCode': 400, 'body': json.dumps({ 'message': 'Missing body' }) }
         
         #with put_item function we insert data in Table
         response = self.dbDynamoClient.put_item (
@@ -45,5 +50,6 @@ class rootEndpoint(Endpoints):
             ReturnValues = 'ALL_OLD'
         )
     
-        return { 'statusCode': response.get("ResponseMetadata", {}).get("HTTPStatusCode", 400), 'body': '{}' }
+        return self.http_response( statusCode= response.get("ResponseMetadata", {}).get("HTTPStatusCode", 400) )
+        #return { 'statusCode': response.get("ResponseMetadata", {}).get("HTTPStatusCode", 400), 'body': '{}' }
         
