@@ -6,6 +6,7 @@ on:
   pull_request:
     branches: [main]
 env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true
   NODE_VERSION: '20.x'                # set this to the node version to use
 
 jobs:
