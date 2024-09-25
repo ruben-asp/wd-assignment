@@ -25,8 +25,7 @@ jobs:
           cache: 'npm'
       - name: Install Python dependencies and CDK
         run: |
-          npm install -g --no-fund 
-          #aws-cdk
+          npm install -g aws-cdk
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@master
         with:
@@ -37,9 +36,7 @@ jobs:
         run: echo "Execute some unit tests here"
       
       - name: Deploy to AWS
-        run: |
-          cdk --version
-          cdk deploy --require-approval=never
+        run: cdk deploy --require-approval=never
 
       - name: E2E tests
         run: echo "Execute some End-to-End tests here"
