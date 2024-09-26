@@ -27,6 +27,9 @@ jobs:
         run: |
           npm install -g aws-cdk
           npm install -g aws-cdk-local
+          npm install -g typescript
+          npm install -g ts-node
+          npm install -D tslib @types/node
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@master
         env:
@@ -40,10 +43,10 @@ jobs:
 
       - name: CDK Synth 
         #run: npm run cdk -w cdk -- synth -q
-        run: cdklocal synth
+        run: cdk synth
         
       - name: CDK Deploy to AWS
-        run: cdklocal deploy --require-approval=never
+        run: cdk deploy --require-approval=never
         #run: npm run cdk -w cdk -- deploy --require-approval never
 
       - name: E2E tests
