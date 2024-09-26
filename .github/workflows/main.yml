@@ -23,10 +23,10 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-      - name: Install Python dependencies and CDK
+      - name: Install CDK
         run: |
           npm install -g aws-cdk
-          npm audit --registry=https://registry.npmjs.org
+          npm install -g aws-cdk-local
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@master
         env:
@@ -39,11 +39,12 @@ jobs:
         run: echo "Execute some unit tests here"
 
       - name: CDK Synth 
-        run: npm run cdk -w cdk -- synth -q
+        #run: npm run cdk -w cdk -- synth -q
+        run: cdklocal synth
         
       - name: CDK Deploy to AWS
-        #run: cdk deploy --require-approval=never
-        run: npm run cdk -w cdk -- deploy --require-approval never
+        run: cdklocal deploy --require-approval=never
+        #run: npm run cdk -w cdk -- deploy --require-approval never
 
       - name: E2E tests
         run: echo "Execute some End-to-End tests here"
